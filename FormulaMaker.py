@@ -1,12 +1,12 @@
 import random
 import math
-import Poland
+import PolishFormulaCalculateUtility
 
 
 class FormulaMaker:
     #initialize
     def __init__(self):
-        self.pc = Poland.Calculator()
+        self.calculator = PolishFormulaCalculateUtility.Calculator()
 
     #generating formula
     #length must be an odd number but if it is not odd number,program change number to odd one.
@@ -33,34 +33,11 @@ class FormulaMaker:
             else:
                 self.formula.append(str(random.randint(0,9)))
 
-        return 0
-
     #check formula possible calculate
     def checkPossibleCalc(self):
-        self.pc.input_formula(self.show_formula())
-        return self.pc.calc(1)
+        self.calculator.input_formula(self.show_formula())
+        return self.calculator.calc(1)
 
     #formula
     def show_formula(self):
         return " ".join(map(str,self.formula))
-
-def main():
-    import sys
-    import random
-
-    fm = FormulaMaker()
-    formulaLength = random.randint(2,15)
-    if formulaLength%2 == 0:
-        formulaLength += 1
-
-    def check():
-        fm.make(formulaLength)
-        return fm.checkPossibleCalc()
-
-    while check() == False:
-        check()
-
-    return fm.show_formula()
-
-if __name__ == "__main__":
-    print main()

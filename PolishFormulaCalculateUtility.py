@@ -4,7 +4,7 @@ import math
 class Calculator:
     def __init__(self):
         pass
-    
+
     def input_formula(self,text):
         self.text = text
 
@@ -23,7 +23,7 @@ class Calculator:
                 self.word[idx] = float(x)
 
             idx += 1
-        
+
         ret = True
         idx = 0
 
@@ -80,18 +80,18 @@ class Calculator:
 
         except IndexError:
             ret = False
-            self.word[0] = "Error!"
+            self.word[0] = "Formula Error!"
         except ZeroDivisionError:
             ret = False
             self.word[0] = "Zero Division Error!"
         except OverflowError:
             ret = False
-            self.word[0] = "Value Large Error!"
+            self.word[0] = "Overflow Error!"
         except ValueError:
             ret = False
-            self.word[0] = "Value Large Error!"
+            self.word[0] = "Value Error!"
 
-        
+
         return ret
 
     def output(self):
