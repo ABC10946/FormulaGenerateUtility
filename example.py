@@ -1,7 +1,7 @@
 import sys
 import random
-import FormulaMaker
-import PolishFormulaCalculateUtility
+import FormulaGenerateUtility.PolishFormulaCalculateUtility as PolishFormulaCalculateUtility
+import FormulaGenerateUtility.FormulaMaker as FormulaMaker
 
 def main():
     calculator = PolishFormulaCalculateUtility.Calculator()
@@ -10,12 +10,10 @@ def main():
     if formulaLength%2 == 0:
         formulaLength += 1
 
-    def check():
-        fm.make(formulaLength)
-        return fm.checkPossibleCalc()
+    fm.make(formulaLength)
 
-    while check() == False:
-        check()
+    while not fm.checkPossibleCalc():
+        fm.make(formulaLength)
 
     calculator.input_formula(fm.show_formula())
 

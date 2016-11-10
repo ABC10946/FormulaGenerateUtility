@@ -1,12 +1,11 @@
 import random
 import math
-import PolishFormulaCalculateUtility
-
+from FormulaGenerateUtility.PolishFormulaCalculateUtility import Calculator
 
 class FormulaMaker:
     #initialize
     def __init__(self):
-        self.calculator = PolishFormulaCalculateUtility.Calculator()
+        self.calculator = Calculator()
 
     #generating formula
     #length must be an odd number but if it is not odd number,program change number to odd one.
