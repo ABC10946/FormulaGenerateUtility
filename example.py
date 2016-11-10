@@ -1,11 +1,11 @@
 import sys
 import random
-import FormulaGenerateUtility.PolishFormulaCalculateUtility as PolishFormulaCalculateUtility
-import FormulaGenerateUtility.FormulaMaker as FormulaMaker
+from FormulaGenerateUtility.PolishFormulaCalculateUtility import Calculator
+from FormulaGenerateUtility.FormulaMaker import FormulaMaker
 
 def main():
-    calculator = PolishFormulaCalculateUtility.Calculator()
-    fm = FormulaMaker.FormulaMaker()
+    calculator = Calculator()
+    fm = FormulaMaker()
     formulaLength = random.randint(2,15)
     if formulaLength%2 == 0:
         formulaLength += 1

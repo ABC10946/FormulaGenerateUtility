@@ -8,14 +8,23 @@ This programs are utility for calculate the formula that written in Polish Notat
 
 # Usage
 
-#### main.py
+#### import this program  
+```python
+from FormulaGenerateUtility.FormulaMaker import FormulaMaker
+from FormulaGenerateUtility.PolishFormulaCalculateUtility import Calculator
+#use FormulaMaker
+fm = FormulaMaker()
+calculator = Calculator()
+```
+
+#### example.py
 This program generate random formula that written in Polish Notation.  
 And,This program also calculate the formula.  
 x = {0,1,2,3,4,5,6,7,8,9}
 
-Example
+
 ```bash
-$ python main.py
+$ python example.py
 ^ 4 + 6 + x + 6 * x x #generated forula and bottoms are answers.
 x = 0:16777216.0
 x = 1:268435456.0

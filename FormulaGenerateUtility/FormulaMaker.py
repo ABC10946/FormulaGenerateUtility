@@ -32,6 +32,7 @@ class FormulaMaker:
             else:
                 self.formula.append(str(random.randint(0,9)))
 
+
     #check formula possible calculate
     def checkPossibleCalc(self):
         self.calculator.input_formula(self.show_formula())
