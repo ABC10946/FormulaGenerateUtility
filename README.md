@@ -1,4 +1,4 @@
-# FormulaMaker
+# FormulaGenerateUtility
 
 This programs are utility for calculate the formula that written in Polish Notation.
 
