@@ -32,14 +32,15 @@ x = 9:2.5711008708143844e+61
 #### PolishFormulaCalculateUtility
 This is utility for calculate the formula that written in Polish Notation.  
 
-function
+##### Class:Calculator(void)  
+######  methods  
 - input_formula(string text)  -- return None  
   input formula that string text.
 
 - show_formula(void)  -- return None  
   show inputted formula.
 
-- calc(void)  -- return Bool value  
+- calc(void or int value)  -- return Bool value  
   calculate the formula that written in Polish Notation.  
   if error happend in calculate phase,this function return error message.  
 
@@ -55,8 +56,9 @@ output answer.
 
 #### FormulaMaker
 This is utility for generate the formula that written in Polish Notation.  
+##### Class:FormulaMaker(void)
 
-function
+###### methods  
 - make(int length)  -- return None  
 generate not checked formula.
 
