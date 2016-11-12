@@ -38,6 +38,9 @@ class FormulaMaker:
 
         return " ".join(self.formula)
 
+    def refresh_formula(self):
+        self.formula = []
+
     def make(self):
         fm = FormulaMaker()
         tree = fm.make_basic_tree()

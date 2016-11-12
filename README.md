@@ -99,9 +99,13 @@ tree.right.right #=>None
 
 ###### methods  
 - make_basic_tree  --  return tree object  
-generate base tree on random
+generate base tree on random  
+
 - glow_tree(tree)  --  return tree object  
 glow tree on random
 
 - make(int length)  --  return string text  
-generate formula  
+generate formula list and return formula that string text.
+
+- refresh_formula()  -- return None
+refresh formula list
