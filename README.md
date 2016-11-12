@@ -98,8 +98,10 @@ tree.right.right #=>None
 ##### Class:FormulaMaker(void)
 
 ###### methods  
-- make_tree(tree)  --  return tree object
-generate formula based on tree structure  
+- make_basic_tree  --  return tree object  
+generate base tree on random
+- glow_tree(tree)  --  return tree object  
+glow tree on random
 
 - make(int length)  --  return string text  
 generate formula  

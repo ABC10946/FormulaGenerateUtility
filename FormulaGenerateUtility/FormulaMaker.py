@@ -16,15 +16,15 @@ class FormulaMaker:
         right = random.choice(list(map(str,list(range(1,10))))+["x"])
         return Tree(ope,Tree(left),Tree(right))
 
-    def make_tree(self,tree):
+    def glow_tree(self,tree):
         choice = random.choice([0,1,2]) #0:left,1:right
 
         if choice == 0:
             tree.left = self.make_basic_tree()
-            self.make_tree(tree.left)
+            self.glow_tree(tree.left)
         elif choice == 1:
             tree.right = self.make_basic_tree()
-            self.make_tree(tree.right)
+            self.glow_tree(tree.right)
 
         return tree
 
@@ -41,5 +41,5 @@ class FormulaMaker:
     def make(self):
         fm = FormulaMaker()
         tree = fm.make_basic_tree()
-        tree = fm.make_tree(tree)
+        tree = fm.glow_tree(tree)
         return fm.gen_formula(tree)
