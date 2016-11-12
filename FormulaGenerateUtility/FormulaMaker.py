@@ -1,43 +1,45 @@
 import random
-import math
-from FormulaGenerateUtility.PolishFormulaCalculateUtility import Calculator
+
+class Tree:
+    def __init__(self,value,left=None,right=None):
+        self.value = value
+        self.left = left
+        self.right = right
 
 class FormulaMaker:
-    #initialize
     def __init__(self):
-        self.calculator = Calculator()
-
-    #generating formula
-    #length must be an odd number but if it is not odd number,program change number to odd one.
-    def make(self,length):
-        if length%2 == 0:
-            length += 1
-
         self.formula = []
 
-        for i in range(length):
-            choice = random.randint(0,6)
-            if choice == 0:
-                self.formula.append("+")
-            elif choice == 1:
-                self.formula.append("-")
-            elif choice == 2:
-                self.formula.append("*")
-            elif choice == 3:
-                self.formula.append("/")
-            elif choice == 4:
-                self.formula.append("x")
-            elif choice == 5:
-                self.formula.append("^")
-            else:
-                self.formula.append(str(random.randint(0,9)))
+    def make_basic_tree(self):
+        ope = random.choice(["+","-","*","/"])
+        left = random.choice(list(map(str,list(range(1,10))))+["x"])
+        right = random.choice(list(map(str,list(range(1,10))))+["x"])
+        return Tree(ope,Tree(left),Tree(right))
 
+    def make_tree(self,tree):
+        choice = random.choice([0,1,2]) #0:left,1:right
 
-    #check formula possible calculate
-    def checkPossibleCalc(self):
-        self.calculator.input_formula(self.show_formula())
-        return self.calculator.calc(1)
+        if choice == 0:
+            tree.left = self.make_basic_tree()
+            self.make_tree(tree.left)
+        elif choice == 1:
+            tree.right = self.make_basic_tree()
+            self.make_tree(tree.right)
 
-    #formula
-    def show_formula(self):
-        return " ".join(map(str,self.formula))
+        return tree
+
+    def gen_formula(self,tree):
+        self.formula.append(tree.value)
+        if tree.left is not None:
+            self.gen_formula(tree.left)
+
+        if tree.right is not None:
+            self.gen_formula(tree.right)
+
+        return " ".join(self.formula)
+
+    def make(self):
+        fm = FormulaMaker()
+        tree = fm.make_basic_tree()
+        tree = fm.make_tree(tree)
+        return fm.gen_formula(tree)

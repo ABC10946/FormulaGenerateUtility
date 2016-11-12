@@ -6,19 +6,11 @@ from FormulaGenerateUtility.FormulaMaker import FormulaMaker
 def main():
     calculator = Calculator()
     fm = FormulaMaker()
-    formulaLength = random.randint(2,15)
-    if formulaLength%2 == 0:
-        formulaLength += 1
 
-    fm.make(formulaLength)
+    formula = fm.make()
+    calculator.input_formula(formula)
 
-    while not fm.checkPossibleCalc():
-        fm.make(formulaLength)
-
-    calculator.input_formula(fm.show_formula())
-
-
-    print(fm.show_formula())
+    print(formula)
     for i in range(10):
         calculator.calc(i)
         print("x = "+str(i)+":"+str(calculator.output()))

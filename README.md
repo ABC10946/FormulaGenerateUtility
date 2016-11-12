@@ -65,14 +65,41 @@ output answer.
 
 #### FormulaMaker
 This is utility for generate the formula that written in Polish Notation.  
+##### Class:Tree(value,left=None,right=None)
+
+###### Usage
+you want to generate tree structure like bottom.
+
+```
+#tree structure of "+ 1 2"
+#"1" and "2" are leaves.
+#but these have value of None
+
+          "+"
+     ______|______
+    "1"          "2"
+  ___|___      ___|___
+  |     |      |     |
+(None)(None) (None)(None)
+```
+
+On use class
+
+```python
+tree = Tree("+",Tree("1"),Tree("2"))
+
+tree.right       #=> "2"
+tree.right.right #=>None
+```
+
+###### methods
+- None  
+
 ##### Class:FormulaMaker(void)
 
 ###### methods  
-- make(int length)  -- return None  
-generate not checked formula.
+- make_tree(tree)  --  return tree object
+generate formula based on tree structure  
 
-- checkPossibleCalc(void)  -- return Bool value  
-check that the formula can be calculate.
-
-- show_formula(void) -- return string value  
-output formula.
+- make(int length)  --  return string text  
+generate formula  
